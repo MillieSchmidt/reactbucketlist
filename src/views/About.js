@@ -12,6 +12,9 @@ function About() {
                 <p className="w-full">This is why it's important that you'll have a simple, easy to use app, for keeping all
                     of your goals. We decided to create this app just for fun, and we hope it'll help you fulfill your dreams.
                 </p>
+                <p className="w-full">This app is currently experimental and was made just for fun and for react-learning purposes. 
+                    It might still have a few bugs, so don't judge it too harshly. It's just my own fun project.
+                </p>
                 <Link exact to="/" className="cursor-pointer underline my-2 py-1 px-3 rounded hover:no-underline hover:text-black mt-5">
                     Back to list
                 </Link>
