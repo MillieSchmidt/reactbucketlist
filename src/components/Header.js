@@ -9,7 +9,7 @@ function Header({ showAdd, showAddItem }) {
         <div>
             <header className="bg-red-600 border-b-2 border-red-700 p-3 flex justify-between items-center">
                 <span className="text-white font-bold">
-                    AppName
+                    BucketList
                 </span>
             
                 {location.pathname === '/' && <AddItem showAdd={showAdd} showAddItem={showAddItem} />}
