@@ -31,7 +31,7 @@ function App() {
 
   // Add Item
   const addItem = async (item) => {
-    const res = await fetch('http://localhost:5000/Items', {
+    const res = await fetch('http://localhost:5000/items', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -46,7 +46,7 @@ function App() {
 
   // Delete Item
   const deleteItem = async (id) => {
-    await fetch(`http://localhost:5000/Items/${id}`, {
+    await fetch(`http://localhost:5000/items/${id}`, {
       method: 'DELETE'
     });
 
