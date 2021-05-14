@@ -7,8 +7,6 @@ import Add from './views/Add';
 import About from './views/About';
 import './App.css';
 
-// make "database" in const just to show frontend skills
-// make object "items"
 function App() {
   const [items = [
     {
