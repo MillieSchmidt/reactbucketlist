@@ -7,49 +7,35 @@ import Add from './views/Add';
 import About from './views/About';
 import './App.css';
 
+// make "database" in const just to show frontend skills
+// make object "items"
 function App() {
-  const [showAddItem, setShowAddItem] = useState(false);
-
-  const [items, setItems] = useState(false);
-
-  useEffect(() => {
-    const getItems = async () => {
-      const itemsFromServer = await fetchItems();
-      setItems(itemsFromServer);
+  const [items = [
+    {
+      title: "Visit Tokyo",
+      deadline: "12/3/2027",
+      id: 1
+    },
+    {
+      title: "Learn to surf",
+      deadline: "12/1/2025",
+      id: 2
     }
+  ], setItems] = useState(false);
 
-    getItems();
-  }, [])
-
-  // Fetch Items
-  const fetchItems = async () => {
-    const res = await fetch('http://localhost:5000/items');
-    const data = await res.json();
-
-    return data;
-  }
+  const [showAddItem, setShowAddItem] = useState(false);
+  // Show Items
+  useEffect((items) => {
+    setItems(items);
+  }, []);
 
   // Add Item
-  const addItem = async (item) => {
-    const res = await fetch('http://localhost:5000/items', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(item)
-    });
-
-    const data = await res.json();
-
-    setItems([...items, data]);
+  const addItem = (item) => {
+    setItems([...items, item]);
   }
 
   // Delete Item
-  const deleteItem = async (id) => {
-    await fetch(`http://localhost:5000/items/${id}`, {
-      method: 'DELETE'
-    });
-
+  const deleteItem = (id) => {
     setItems(items.filter((item) => item.id !== id));
   }
 
@@ -60,11 +46,11 @@ function App() {
 
         <div>
           <Switch>
-            <Route exact path="/">
+            <Route path="/list">
               {showAddItem && <Add onAdd={addItem} />}
               <Home items={items} onDelete={deleteItem} />
             </Route>
-            <Route path="/about">
+            <Route exact path="/">
               <About />
             </Route>
           </Switch>

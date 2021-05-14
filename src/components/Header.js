@@ -12,9 +12,9 @@ function Header({ showAdd, showAddItem }) {
                     BucketList
                 </span>
             
-                {location.pathname === '/' && <AddItem showAdd={showAdd} showAddItem={showAddItem} />}
+                {location.pathname === '/list' && <AddItem showAdd={showAdd} showAddItem={showAddItem} />}
             </header>
-            {location.pathname === '/' && <h1 className="text-4xl text-center bg-white py-3 mt-1">Your Bucket List</h1>}
+            {location.pathname === '/list' && <h1 className="text-4xl text-center bg-white py-3 mt-1">Your Bucket List</h1>}
         </div>
     );
 }

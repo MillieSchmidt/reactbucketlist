@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 const Add = ({ onAdd }) => {
     const [title, setItem] = useState('');
     const [deadline, setDate] = useState('');
+    const [id, setId] = useState(3);
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -15,10 +16,11 @@ const Add = ({ onAdd }) => {
             return;
         }
 
-        onAdd({ title, deadline });
+        onAdd({ title, deadline, id });
 
         setItem('');
         setDate('');
+        setId(id + 1);
     }
 
     return (
@@ -31,6 +33,7 @@ const Add = ({ onAdd }) => {
                 <label className="text-center">What excites you?</label>
                 <input type="text" placeholder="Add item..." className="border pl-1 m-1 w-full" value={title} onChange={(e) => setItem(e.target.value)} />
                 <input type="date" className="border m-1 text-center w-10/12" value={deadline} onChange={(e) => setDate(e.target.value)} />
+                <input type="date" className="border m-1 text-center w-10/12" value={id} readOnly hidden />
                 <input type="submit" value="Add Item" className="bg-blue-500 w-full rounded border p-1 mt-3 text-white text-center hover:bg-purple-600 hover:text-white" />
             </form>
             

@@ -6,7 +6,7 @@ function Footer() {
         <footer className="bg-red-600 text-white text-center text-sm p-3 absolute bottom-0 w-full">
             &copy; Copyright 2021 <br />
 
-            <Link to="/about" className="underline hover:text-white hover:no-underline">
+            <Link exact to="/" className="underline hover:text-white hover:no-underline">
                 About
             </Link>
         </footer>
